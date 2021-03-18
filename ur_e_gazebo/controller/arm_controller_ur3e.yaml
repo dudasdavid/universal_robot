@@ -33,15 +33,15 @@ joint_group_position_controller:
 gripper_controller:
   type: position_controllers/JointTrajectoryController
   joints:
-     - rh_p12_rn
+     - rh_p12_rn_a
      - rh_r2
      - rh_l1
      - rh_l2
 
 
-#rh_p12_rn_position:
+#rh_p12_rn_a_position:
 #  type: effort_controllers/JointPositionController
-#  joint: rh_p12_rn
+#  joint: rh_p12_rn_a
 #  pid: {p: 7000.0, i: 0.1, d: 300.0}
 #
 #rh_r2_position:
