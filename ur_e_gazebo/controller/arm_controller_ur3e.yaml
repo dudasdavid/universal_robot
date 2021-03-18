@@ -33,11 +33,39 @@ joint_group_position_controller:
 gripper_controller:
   type: position_controllers/JointTrajectoryController
   joints:
-     - rh_p12_rn_a
-     - rh_r2
-     - rh_l1
-     - rh_l2
+     - gripper
 
+gazebo_ros_control:
+  pid_gains:
+    # the following gains are used by the gazebo_mimic_joint plugin
+    rh_p12_rn_a:
+      p: 20.0
+      i: 0.1
+      d: 1.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    rh_r2:
+      p: 10.0
+      i: 0.1
+      d: 1.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    rh_l1:
+      p: 20.0
+      i: 0.1
+      d: 1.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    rh_l2:
+      p: 10.0
+      i: 0.1
+      d: 1.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
 
 #rh_p12_rn_a_position:
 #  type: effort_controllers/JointPositionController
