@@ -10,8 +10,8 @@
   <!-- ur3e -->
   <xacro:include filename="$(find ur_e_description)/urdf/ur3e.urdf.xacro" />
 
-  <!-- rh_p12_rn -->
-  <xacro:include filename="$(find rh_p12_rn_description)/urdf/rh_p12_rn.xacro" />
+  <!-- rh_p12_rn_a -->
+  <xacro:include filename="$(find rh_p12_rn_a_description)/urdf/rh_p12_rn_a.xacro" />
 
   <!-- arm -->
   <xacro:arg name="kinematics_config" default="$(find ur_e_description)/config/ur3e_default.yaml"/>
