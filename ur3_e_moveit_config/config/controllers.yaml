@@ -1,5 +1,5 @@
 controller_list:
-  - name: ""
+  - name: "scaled_pos_joint_traj_controller"
     action_ns: follow_joint_trajectory
     type: FollowJointTrajectory
     joints:
@@ -9,3 +9,8 @@ controller_list:
       - wrist_1_joint
       - wrist_2_joint
       - wrist_3_joint
+  - name: "gripper_controller"
+    action_ns: gripper_joint_trajectory
+    type: FollowJointTrajectory
+    joints:
+      - gripper
