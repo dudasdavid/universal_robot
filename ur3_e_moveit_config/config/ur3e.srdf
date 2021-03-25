@@ -66,4 +66,8 @@
     <disable_collisions link1="rh_p12_rn_base" link2="rh_p12_rn_r1" reason="Adjacent" />
     <disable_collisions link1="rh_p12_rn_base" link2="rh_p12_rn_r2" reason="Never" />
     <disable_collisions link1="rh_p12_rn_base" link2="wrist_3_link" reason="Adjacent" />
+    <disable_collisions link1="rh_p12_rn_l1" link2="rh_p12_rn_ee" reason="Adjacent" />
+    <disable_collisions link1="rh_p12_rn_r1" link2="rh_p12_rn_ee" reason="Adjacent" />
+    <disable_collisions link1="rh_p12_rn_l2" link2="rh_p12_rn_ee" reason="Adjacent" />
+    <disable_collisions link1="rh_p12_rn_r2" link2="rh_p12_rn_ee" reason="Adjacent" />
 </robot>
