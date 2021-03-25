@@ -5,7 +5,7 @@
     
   <!-- Remap follow_joint_trajectory -->
   <remap if="$(arg sim)" from="/scaled_pos_joint_traj_controller/follow_joint_trajectory" to="/arm_controller/follow_joint_trajectory"/>
-  <remap if="$(arg sim)" from="/gripper_controller/gripper_joint_trajectory" to="/gripper_controller/follow_joint_trajectory"/>
+  <!--remap if="$(arg sim)" from="/gripper_controller/gripper_joint_trajectory" to="/gripper_controller/follow_joint_trajectory"/-->
   
   <!-- Launch moveit -->
   <include file="$(find ur3_e_moveit_config)/launch/move_group.launch">
