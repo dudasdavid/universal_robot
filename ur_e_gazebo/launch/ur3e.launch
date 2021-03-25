@@ -28,4 +28,7 @@
   <!-- load other controllers -->
   <node name="ros_control_controller_manager" pkg="controller_manager" type="controller_manager" respawn="false" output="screen" args="load joint_group_position_controller" />
 
+  <!-- start gripper action server -->
+  <node pkg="rh_p12_rn_a_tools" type="gripper_action_server.py" name="gripper_action_server" output="screen"/>
+
 </launch>
