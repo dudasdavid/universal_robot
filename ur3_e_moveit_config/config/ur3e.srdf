@@ -12,9 +12,9 @@
     <group name="manipulator">
         <chain base_link="base_link" tip_link="rh_p12_rn_ee" />
     </group>
-    <group name="endeffector">
+    <!--group name="endeffector">
         <link name="rh_p12_rn_ee" />
-    </group>
+    </group-->
     <group name="gripper">
         <joint name="gripper" />
     </group>
@@ -42,7 +42,7 @@
         <joint name="gripper" value="0.0" />
     </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
-    <end_effector name="moveit_ee" parent_link="rh_p12_rn_ee" group="endeffector" />
+    <end_effector name="moveit_ee" parent_link="rh_p12_rn_ee" group="gripper" />
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
     <virtual_joint name="fixed_base" type="fixed" parent_frame="world" child_link="base_link" />
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
