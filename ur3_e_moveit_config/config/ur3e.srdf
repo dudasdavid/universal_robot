@@ -36,7 +36,7 @@
         <joint name="wrist_3_joint" value="0" />
     </group_state>
     <group_state name="gripper_closed" group="gripper">
-        <joint name="gripper" value="0.98" />
+        <joint name="gripper" value="0.7" />
     </group_state>
     <group_state name="gripper_open" group="gripper">
         <joint name="gripper" value="0.0" />
