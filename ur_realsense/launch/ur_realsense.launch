@@ -113,6 +113,6 @@
     </include>
   </group>
 
-  <node pkg="tf" type="static_transform_publisher" name="camera" args="-0.15 1.5 0.35 -1.5708 0 0 world rgbd_camera_link 50" />
+  <node pkg="tf" type="static_transform_publisher" name="camera" args="-0.15 1.5 0.22 -1.5708 0 0 world rgbd_camera_link 50" />
 
 </launch>
