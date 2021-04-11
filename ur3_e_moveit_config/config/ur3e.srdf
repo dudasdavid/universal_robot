@@ -35,6 +35,14 @@
         <joint name="wrist_2_joint" value="0" />
         <joint name="wrist_3_joint" value="0" />
     </group_state>
+    <group_state name="cube" group="manipulator">
+        <joint name="elbow_joint" value="0.459" />
+        <joint name="shoulder_lift_joint" value="-0.692" />
+        <joint name="shoulder_pan_joint" value="1.440" />
+        <joint name="wrist_1_joint" value="-1.360" />
+        <joint name="wrist_2_joint" value="-1.552" />
+        <joint name="wrist_3_joint" value="-0.146" />
+    </group_state>
     <group_state name="gripper_closed" group="gripper">
         <joint name="gripper" value="1.135" />
     </group_state>
