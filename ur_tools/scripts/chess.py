@@ -54,6 +54,9 @@ import time
 from copy import deepcopy
 from trajectory_msgs.msg import JointTrajectoryPoint
 from robotis_controller_msgs.msg import SyncWriteItem
+from geometry_msgs.msg import Pose
+from moveit_msgs.msg import RobotState, Constraints
+
 ## END_SUB_TUTORIAL
 
 
@@ -142,6 +145,8 @@ class MoveGroupPythonIntefaceTutorial(object):
     print ""
     ## END_SUB_TUTORIAL
 
+    self.constraints = Constraints()
+
     # Robotis gripper
     self.goal_position_msg = SyncWriteItem()
     self.goal_position_msg.item_name = "goal_position"
@@ -160,7 +165,7 @@ class MoveGroupPythonIntefaceTutorial(object):
 
   def set_gripper(self, status):
       if status == "open":
-        self.goal_position_msg.value = [630]
+        self.goal_position_msg.value = [620]
       else:
         self.goal_position_msg.value = [740]
 
@@ -168,33 +173,59 @@ class MoveGroupPythonIntefaceTutorial(object):
 
   def do_chess_step(self, start, end):
       # Y coordinate
-      rows = {"1": 0.420, "2": 0.393, "3": 0.366, "4": 0.339, "5": 0.311, "6": 0.284, "7": 0.257, "8": 0.230}
+      rows = {"1": 0.420, "2": 0.393, "3": 0.366, "4": 0.339, "5": 0.311, "6": 0.284, "7": 0.257, "8": 0.230, "X": 0.3}
       # X coordinate
-      columns  = {"A": 0.15, "B": 0.123, "C": 0.096, "D": 0.069, "E": 0.041, "F": 0.014, "G": -0.013, "H": -0.040}
+      columns  = {"A": 0.15, "B": 0.123, "C": 0.096, "D": 0.069, "E": 0.041, "F": 0.014, "G": -0.013, "H": -0.040, "X": -0.1}
 
       z_high = 0.25
       z_low = 0.17
       z_drop = 0.177
 
+      # 1) Go above start position
       self.set_gripper("open")
       self.go_to_pose_goal(columns[start[0]], rows[start[1]], z_high)
-      time.sleep(0.5)
+      time.sleep(0.2)
+
+      # 2) Go down
+      #self.go_to_pose_goal(columns[start[0]], rows[start[1]], z_high - (z_high - z_low)/2)
+      #time.sleep(0.1)
       self.go_to_pose_goal(columns[start[0]], rows[start[1]], z_low)
-      time.sleep(0.5)
+      time.sleep(0.1)
+
+      # 3) Grab the figure
       self.set_gripper("closed")
-      time.sleep(0.5)
+      time.sleep(0.2)
+
+      # 4) Move up
+      #self.go_to_pose_goal(columns[start[0]], rows[start[1]], z_high - (z_high - z_low)/2)
+      #time.sleep(0.1)
       self.go_to_pose_goal(columns[start[0]], rows[start[1]], z_high)
-      time.sleep(0.5)
+      time.sleep(0.1)
+
+      # 5) Go above end position
       self.go_to_pose_goal(columns[end[0]], rows[end[1]], z_high)
-      time.sleep(0.5)
+      time.sleep(0.2)
+
+      # 6) Move down
+      #self.go_to_pose_goal(columns[end[0]], rows[end[1]], z_high - (z_high - z_drop)/2)
+      #time.sleep(0.1)
       self.go_to_pose_goal(columns[end[0]], rows[end[1]], z_drop)
-      time.sleep(0.5)
+      time.sleep(0.1)
+
+      # 7) Open gripper
       self.set_gripper("open")
-      time.sleep(0.5)
+      time.sleep(0.2)
+
+      # 8) Move up
+      #self.go_to_pose_goal(columns[end[0]], rows[end[1]], z_high - (z_high - z_drop)/2)
+      #time.sleep(0.1)
       self.go_to_pose_goal(columns[end[0]], rows[end[1]], z_high)
-      time.sleep(0.5)
-      self.go_to_home()
-      time.sleep(0.5)
+      time.sleep(0.1)
+
+      # 9) Go home if it's not a hit
+      if end != "XX":
+        self.go_to_home()
+      time.sleep(0.2)
 
 
   def go_to_home(self):
@@ -330,7 +361,7 @@ def main():
     tutorial.move_group.set_max_velocity_scaling_factor(0.5)
     # Set tolerances, without that IK cannot do a valid plan
     tutorial.move_group.set_goal_position_tolerance(0.01)
-    tutorial.move_group.set_goal_orientation_tolerance(0.1)
+    tutorial.move_group.set_goal_orientation_tolerance(0.07)
     
     print "============ Press `Enter` to go home ..."
     raw_input()
@@ -345,6 +376,11 @@ def main():
     tutorial.do_chess_step("G8", "F6")
     raw_input()
     tutorial.do_chess_step("F8", "B4")
+    raw_input()
+    tutorial.do_chess_step("E8", "A4")
+    raw_input()
+    tutorial.do_chess_step("C3", "XX")
+    tutorial.do_chess_step("B4", "C3")
     
 
   except rospy.ROSInterruptException:
