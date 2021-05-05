@@ -5,6 +5,7 @@
   <arg name="gui" default="true" doc="Starts gazebo gui" />
   <arg name="world_file" default="worlds/empty.world"/>
   <arg name="z" default="0.1"/>
+  <arg name="yaw" default="0"/>
   
   <!-- startup simulated world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -19,7 +20,7 @@
   </include>
 
   <!-- push robot_description to factory and spawn robot in gazebo -->
-  <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model robot -z $(arg z)" respawn="false" output="screen" />
+  <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model robot -z $(arg z) -Y $(arg yaw)" respawn="false" output="screen" />
 
   <include file="$(find ur_e_gazebo)/launch/controller_utils.launch"/>
 
