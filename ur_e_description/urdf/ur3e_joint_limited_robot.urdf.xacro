@@ -13,6 +13,9 @@
   <!-- rh_p12_rn_a -->
   <xacro:include filename="$(find rh_p12_rn_a_description)/urdf/rh_p12_rn_a.xacro" />
 
+  <!-- camera -->
+  <xacro:include filename="$(find chess_detector)/urdf/camera.xacro" />
+
   <!-- arm -->
   <xacro:arg name="kinematics_config" default="$(find ur_e_description)/config/ur3e_default.yaml"/>
   <xacro:ur3e_robot prefix="" joint_limited="true"
