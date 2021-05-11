@@ -16,6 +16,9 @@
   <!-- camera -->
   <xacro:include filename="$(find chess_detector)/urdf/camera.xacro" />
 
+  <!-- touch sensor -->
+  <xacro:include filename="$(find chess_detector)/urdf/touch.xacro" />
+
   <!-- arm -->
   <xacro:arg name="kinematics_config" default="$(find ur_e_description)/config/ur3e_default.yaml"/>
   <xacro:ur3e_robot prefix="" joint_limited="true"
