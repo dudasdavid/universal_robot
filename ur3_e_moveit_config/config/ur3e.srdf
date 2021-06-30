@@ -117,4 +117,11 @@
     <disable_collisions link1="rh_p12_rn_r1" link2="rh_p12_rn_ee" reason="Adjacent" />
     <disable_collisions link1="rh_p12_rn_l2" link2="rh_p12_rn_ee" reason="Adjacent" />
     <disable_collisions link1="rh_p12_rn_r2" link2="rh_p12_rn_ee" reason="Adjacent" />
+    <disable_collisions link1="rh_p12_rn_r2" link2="ground_plane_box_board" reason="Adjacent" />
+    <disable_collisions link1="rh_p12_rn_l2" link2="ground_plane_box_board" reason="Adjacent" />
+    <disable_collisions link1="rh_p12_rn_r1" link2="ground_plane_box_board" reason="Adjacent" />
+    <disable_collisions link1="rh_p12_rn_l1" link2="ground_plane_box_board" reason="Adjacent" />
+    <disable_collisions link1="rh_p12_rn_base" link2="ground_plane_box_board" reason="Adjacent" />
+    <disable_collisions link1="rh_p12_rn_ee" link2="ground_plane_box_board" reason="Adjacent" />
+
 </robot>

@@ -64,4 +64,28 @@
     </collision>
   </link>
 
+  <joint name="ground_joint2" type="fixed">
+    <parent link="ground_plane_box" />
+    <child link = "ground_plane_box_board" />
+    <origin xyz="0.0 0.4 0.3" rpy="0.0 0.0 0.0" />
+  </joint>
+
+  <link name="ground_plane_box_board">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.4 0.4 0.15"/> 
+      </geometry>
+      <material name="Grey">
+        <color rgba="0.7 0.7 0.7 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.4 0.4 0.15"/> 
+      </geometry>
+    </collision>
+  </link>
+
 </robot>
