@@ -14,10 +14,10 @@
   <xacro:include filename="$(find rh_p12_rn_a_description)/urdf/rh_p12_rn_a.xacro" />
 
   <!-- camera -->
-  <xacro:include filename="$(find chess_detector)/urdf/camera.xacro" />
+  <xacro:include filename="$(find mogi_chess_gazebo)/urdf/camera.xacro" />
 
   <!-- touch sensor -->
-  <xacro:include filename="$(find chess_detector)/urdf/touch.xacro" />
+  <xacro:include filename="$(find mogi_chess_gazebo)/urdf/touch.xacro" />
 
   <!-- arm -->
   <xacro:arg name="kinematics_config" default="$(find ur_e_description)/config/ur3e_default.yaml"/>
