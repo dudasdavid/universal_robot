@@ -43,5 +43,7 @@
       safety_pos_margin="${safety_pos_margin}"
       safety_k_position="${safety_k_position}"
     />
+    <!-- rh_p12_rn_a -->
+    <xacro:include filename="$(find rh_p12_rn_a_description)/urdf/rh_p12_rn_a.xacro" />
   </xacro:macro>
 </robot>
