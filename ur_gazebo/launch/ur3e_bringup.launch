@@ -49,8 +49,8 @@
   <!-- Gazebo parameters -->
   <arg name="paused" default="false" doc="Starts Gazebo in paused mode" />
   <arg name="gui" default="true" doc="Starts Gazebo gui" />
-  <arg name="spawn_z" default="0.1" doc="Robot spawn height" />
-  <arg name="gazebo_world" default="worlds/empty.world" doc="Gazebo world to run" />
+  <arg name="spawn_z" default="1.02" doc="Robot spawn height" />
+  <arg name="gazebo_world" default="$(find mogi_chess_gazebo)/world/chessboard.world" doc="Gazebo world to run" />
 
   <!-- Load urdf on the parameter server -->
   <include file="$(arg robot_description_file)">
