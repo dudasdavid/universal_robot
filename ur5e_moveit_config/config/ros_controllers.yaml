@@ -9,3 +9,8 @@ controller_list:
     - wrist_1_joint
     - wrist_2_joint
     - wrist_3_joint
+- name: "gripper_robotis_controller"
+  action_ns: gripper_joint_trajectory
+  type: FollowJointTrajectory
+  joints:
+    - gripper
