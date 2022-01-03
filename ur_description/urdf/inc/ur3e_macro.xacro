@@ -43,5 +43,42 @@
       safety_pos_margin="${safety_pos_margin}"
       safety_k_position="${safety_k_position}"
     />
+
+    <!-- world link -->
+    <link name="world"/>
+    <joint name="world_joint" type="fixed">
+      <parent link="world"/>
+      <child link="base_link"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <!-- rh_p12_rn_a -->
+    <xacro:include filename="$(find rh_p12_rn_a_description)/urdf/rh_p12_rn_a.xacro" />
+
+    <!-- add ground plane box TODO: this should be moved to another xacro -->
+    <joint name="ground_joint" type="fixed">
+      <parent link="world" />
+      <child link = "ground_plane_box" />
+      <origin xyz="0.0 0.0 -0.26" rpy="0.0 0.0 0.0" />
+    </joint>
+
+    <link name="ground_plane_box">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="1.0 1.0 0.5"/> 
+        </geometry>
+        <material name="Grey">
+          <color rgba="0.7 0.7 0.7 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="1.0 1.0 0.5"/> 
+        </geometry>
+      </collision>
+    </link>
+
   </xacro:macro>
 </robot>
