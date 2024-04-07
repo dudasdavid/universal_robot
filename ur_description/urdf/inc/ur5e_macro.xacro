@@ -49,14 +49,14 @@
     <joint name="world_joint" type="fixed">
       <parent link="world"/>
       <child link="base_link"/>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 1.5708"/>
     </joint>
 
     <!-- rh_p12_rn_a -->
     <xacro:include filename="$(find rh_p12_rn_a_description)/urdf/rh_p12_rn_a.xacro" />
 
     <!-- camera -->
-    <xacro:include filename="$(find mogi_chess_gazebo)/urdf/camera.xacro" />
+    <xacro:include filename="$(find mogi_chess_gazebo)/urdf/camera_ur5e.xacro" />
 
     <!-- touch sensor -->
     <xacro:include filename="$(find mogi_chess_gazebo)/urdf/touch.xacro" />
@@ -89,14 +89,14 @@
     <joint name="ground_joint2" type="fixed">
       <parent link="ground_plane_box" />
       <child link = "ground_plane_box_board" />
-      <origin xyz="0.0 0.41 0.325" rpy="0.0 0.0 0.0" />
+      <origin xyz="0.0 0.75 0.325" rpy="0.0 0.0 0.0" />
     </joint>
 
     <link name="ground_plane_box_board">
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <box size="0.4 0.4 0.15"/> 
+          <box size="2.0 1.0 0.3"/> 
         </geometry>
         <material name="Grey">
           <color rgba="0.7 0.7 0.7 1.0"/>
@@ -105,7 +105,55 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <box size="0.4 0.4 0.15"/> 
+          <box size="2.0 1.0 0.3"/> 
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="ground_joint3" type="fixed">
+      <parent link="ground_plane_box" />
+      <child link = "ground_plane_box_board2" />
+      <origin xyz="0.75 0.5 0.325" rpy="0.0 0.0 0.0" />
+    </joint>
+
+    <link name="ground_plane_box_board2">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="1.0 2.0 0.3"/> 
+        </geometry>
+        <material name="Grey">
+          <color rgba="0.7 0.7 0.7 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="1.0 2.0 0.3"/> 
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="ground_joint4" type="fixed">
+      <parent link="ground_plane_box" />
+      <child link = "ground_plane_box_board3" />
+      <origin xyz="-0.75 0.5 0.325" rpy="0.0 0.0 0.0" />
+    </joint>
+
+    <link name="ground_plane_box_board3">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="1.0 2.0 0.3"/> 
+        </geometry>
+        <material name="Grey">
+          <color rgba="0.7 0.7 0.7 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="1.0 2.0 0.3"/> 
         </geometry>
       </collision>
     </link>
